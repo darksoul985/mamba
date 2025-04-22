@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block title %}
+Главная
+{% endblock %}
+
+{% block style %}
+table.iksweb{
+width: 70%;
+border-collapse:collapse;
+border-spacing:0;
+height: auto;
+}
+table.iksweb,table.iksweb td, table.iksweb th {
+border: 1px solid #595959;
+}
+table.iksweb td,table.iksweb th {
+padding: 3px;
+width: 30px;
+height: 35px;
+}
+table.iksweb th {
+background: #4e6982;
+color: #fff;
+font-weight: normal;
+}
+tr.head td {
+background: #9af064;
+}
+.centred-content {
+    text-align: center;
+    vertical-aline: middle;
+    font-weight: bold;
+}
+.feedback_form {
+margin: 40px;
+padding: 5px;
+}
+
+{% endblock %}
+{% block content %}
+<div>
+  <table class="iksweb">
+    <tbody>
+      <tr class="head">
+        <td class="centred-content">ФИО преподавателя</td>
+        <td class="centred-content">Курс</td>
+        <td class="centred-content">Дни занятий</td>
+        <td class="centred-content">Время</td>
+      </tr>
+      <tr>
+        <td>Крупская Н.</td>
+        <td>Политическая история</td>
+        <td>Пн.
+          Чт.</td>
+        <td>11.00 - 12.30</td>
+      </tr>
+      <tr>
+        <td>Маркс К.</td>
+        <td>Капитал. Критика политической экономии</td>
+        <td>Вт.</td>
+        <td>10.00 - 11.30</td>
+      </tr>
+      <tr>
+        <td>Энгельс Ф.</td>
+        <td>Происхождение семьи, частной собственности и государства</td>
+        <td>Ср.
+          Пт.</td>
+        <td>14.30 - 16.00</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+<form name="feedback" class="reachgoal feedback_form" data-target="" method="POST">
+    <input value="" name="type"/>
+    <input value="" name="message"/>
+    <input value="" name="on_submit"/>
+    <div class="relContainer">
+            <select name="feedback" id="feedback_id" class="saveFiled">
+                <option value="email">
+                    email
+                </option>
+                <option value="phone">
+                    phone
+                </option>
+            </select>
+        </div>
+    <button type="submit" class="btn btn-send">Отправить</button>
+</form>
+</div>
+
+  {% endblock %}
