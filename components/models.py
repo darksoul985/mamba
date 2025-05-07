@@ -1,16 +1,21 @@
 import quopri
+from abc import ABC
 
 
 # класс - Абстрактный пользователь
-class BaseUser:
+class AbstractUser(ABC):
+    def create(self, **kwargs):
+        raise NotImplementedError
+
+
+class BaseUser(AbstractUser):
+    id = 0
+
     def __init__(self, username, fiers_name, last_name, email):
         self.username = username
         self.fiers_name = fiers_name
         self.last_name = last_name
         self.email = email
-
-    def create(self, **kwargs):
-        raise NotImplementedError
 
 
 class Teacher(BaseUser):
@@ -106,11 +111,11 @@ class Engine:
             print("item", item.id)
             if item.id == id:
                 return item
-        raise Exeption(f"Нет категории с id: {id}")
+        raise ValueError(f"Нет категории с id: {id}")
 
     @staticmethod
     def crate_course(type_, name, category):
-        return CourseFatory.create(type_, name, category)
+        return CourseFatory.create_course(type_, name, category)
 
     def get_courses(self, name):
         for item in self.courses:
@@ -119,7 +124,7 @@ class Engine:
         return None
 
     @staticmethod
-    def decode_valeu(val):
+    def decode_value(val):
         val_b = bytes(val.replace("%", "=").replace("+", " "), "UTF-8")
         val_decode_str = quopri.decodestring(val_b)
         return val_decode_str.decode("UTF-8")
