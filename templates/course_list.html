@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Список курсов
+{% endblock %}
+{% block style %}
+    {% include "include/inc_style.html" %}
+{% endblock %}
+{% block content %}
+    <div>
+        <a href="/">Назад на главную</a>
+    </div>
+    <br>
+    <br>
+
+
+    <div>
+        <h1>Список курсов для категории {{ name }}</h1>
+        <ol>
+            {% for item in objects_list %}
+                <li>
+                    {{ item.name }}
+                </li>
+            {% endfor %}
+        </ol>
+    </div>
+
+    <div>
+        <a class="btn-create" href="/create-course/?id={{ id }}">Создать новый курс</a>
+    </div>
+
+{% endblock %}

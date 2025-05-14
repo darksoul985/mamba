@@ -7,11 +7,22 @@
         {% block title%} {% endblock %}
     </title>
 <style>
+    body {
+        padding: 15px;
+        padding-left: 25px;
+        background-image: linear-gradient(
+            to left, 
+            #0a19ba, 
+            #004d7a, 
+            #009372, 
+            #a8eb12
+            );
+    }
     {% block style %} {% endblock %}
 </style>
 </head>
 <body>
-    {% include 'menu.html' %}
+    {% include 'include/inc_menu.html' %}
     {% block content %} {% endblock %}
     
 </body>
